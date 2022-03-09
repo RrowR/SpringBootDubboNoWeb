@@ -9,8 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 @SpringBootApplication
 public class RmiServerStartApplication {
-    public static void main(String[] args) throws InterruptedException {
-        SpringApplication.run(RmiServerStartApplication.class,args);
-        Thread.currentThread().join();
+    public static void main(String[] args) {
+        SpringApplication.run(RmiServerStartApplication.class, args);
     }
 }
