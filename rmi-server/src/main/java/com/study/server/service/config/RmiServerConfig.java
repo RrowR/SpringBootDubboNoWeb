@@ -15,7 +15,7 @@ import org.springframework.remoting.rmi.RmiServiceExporter;
 public class RmiServerConfig {
 
     @Autowired
-    private UserServiceImpl userService;
+    private UserService userService;
 
     /*
         服务端暴露接口
@@ -23,9 +23,9 @@ public class RmiServerConfig {
     @Bean
     public RmiServiceExporter rmiServiceExporter(){
         RmiServiceExporter exporter = new RmiServiceExporter();
-        exporter.setRegistryPort(2022);
-        exporter.setServiceName("userService");
-        exporter.setService(userService);
+        exporter.setRegistryPort(2022);                 // 服务的名称
+        exporter.setServiceName("userService");         // 服务的名字
+        exporter.setService(userService);               // 这里使用接口还是实现类都是可以的(服务的接口)
         exporter.setServiceInterface(UserService.class);        // 这里貌似使用的是jdk的动态代理，只能使用接口的方式
         return exporter;
     }
